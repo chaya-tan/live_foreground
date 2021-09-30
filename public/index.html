@@ -49,16 +49,27 @@
       body {
         font-family: "IBM Plex Sans Thai", sans-serif;
       }
+
+      #product_description {
+        font-size: 0.5em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 120px;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
     <div style="position: relative">
-      <img src="./asset/code_price.png" alt="" style="width: 800px" />
+      <img src="./asset/code_price_v2.png" alt="" style="width: 800px" />
       <div
         style="
-          font-size: 4.5em;
+          font-size: 3.5em;
           position: absolute;
-          top: 40%;
+          top: 35%;
           width: 800px;
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -68,11 +79,11 @@
           <div id="product_code">กก</div>
           <div
             style="
-              font-size: 0.25em;
+              font-size: 0.35em;
               position: absolute;
               display: flex;
               justify-content: center;
-              top: 90px;
+              top: 75px;
               width: 100%;
               color: red;
             "
@@ -85,6 +96,8 @@
           <span id="product_price">50</span>
           <span style="font-size: 0.5em">บาท</span>
         </div>
+        <div id="product_description">อธิบายอธิบายอธิบายอธิบาย</div>
+        <!-- <div id="">พิมพ์ รหัส=จำนวน</div> -->
       </div>
     </div>
 
@@ -150,7 +163,7 @@
       console.log("db", db);
 
       let productArray;
-      d3.csv("./asset/obs.csv", function (error, data) {
+      d3.csv("./asset/21-10-02-product.csv", function (error, data) {
         if (error) throw error;
         console.log(data); // [{"Hello": "world"}, …]
         productArray = data;
@@ -159,6 +172,7 @@
       let productCode = "หห";
       let productVariant = "หหฟ้า หหแดง หหชมพู";
       let productPrice = "120";
+      let productDescription = "อธิบายอธิบายอธิบายอธิบาย";
       let productIndex = 1;
 
       const setProductDetail = (productIndex) => {
@@ -169,6 +183,9 @@
 
         document.getElementById("product_variant").innerText =
           productArray[productIndex]["รหัสรอง"];
+
+        document.getElementById("product_description").innerText =
+          productArray[productIndex]["คำอธิบาย"];
       };
 
       document.onkeydown = (e) => {
