@@ -175,11 +175,14 @@
       console.log("db", db);
 
       let productArray;
-      d3.csv("./asset/21-10-02-product.csv", function (error, data) {
-        if (error) throw error;
-        console.log(data); // [{"Hello": "world"}, …]
-        productArray = data;
-      });
+      d3.csv(
+        "./asset/LIVE Oct 2  - ตัวอย่างสำหรับลงเว็บ.csv",
+        function (error, data) {
+          if (error) throw error;
+          console.log(data); // [{"Hello": "world"}, …]
+          productArray = data;
+        }
+      );
 
       let productCode = "หห";
       let productVariant = "หหฟ้า หหแดง หหชมพู";
