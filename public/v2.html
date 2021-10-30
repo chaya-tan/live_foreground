@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- <script defer src="/__/firebase/9.1.0/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/9.1.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.1.0/firebase-database-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-firestore-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-functions-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-messaging-compat.js"
+    ></script>
+    <script defer src="/__/firebase/9.1.0/firebase-storage-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-analytics-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-remote-config-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/9.1.0/firebase-performance-compat.js"
+    ></script> -->
+
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <!-- <script defer src="/__/firebase/init.js?useEmulator=true"></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "IBM Plex Sans Thai", sans-serif;
+      }
+
+      #product_description {
+        font-size: 0.5em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 120px;
+        width: 100%;
+      }
+
+      #live_description {
+        font-size: 0.3em;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 160px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position: relative">
+      <img src="./asset/code_price_v2.png" alt="" style="width: 800px" />
+      <div
+        style="
+          font-size: 3.5em;
+          position: absolute;
+          top: 35%;
+          width: 800px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        "
+      >
+        <div style="position: relative; display: flex; justify-content: center">
+          <div id="product_code">กก</div>
+          <div
+            style="
+              font-size: 0.35em;
+              position: absolute;
+              display: flex;
+              justify-content: center;
+              top: 75px;
+              width: 100%;
+              color: red;
+            "
+            id="product_variant"
+          >
+            กกม่วง กกฟ้า กกขาว
+          </div>
+        </div>
+        <div style="position: relative; left: 20%">
+          <span id="product_price">50</span>
+          <span style="font-size: 0.5em">บาท</span>
+        </div>
+        <div id="product_description">อธิบายอธิบายอธิบายอธิบาย</div>
+        <div id="live_description">พิมพ์ รหัส=จำนวน ค่าส่งเหมา 39 บาท</div>
+        <!-- <div id="">พิมพ์ รหัส=จำนวน</div> -->
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loadEl = document.querySelector("#load");
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            "auth",
+            "database",
+            "firestore",
+            "functions",
+            "messaging",
+            "storage",
+            "analytics",
+            "remoteConfig",
+            "performance",
+          ].filter((feature) => typeof app[feature] === "function");
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(
+            ", "
+          )}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent =
+            "Error loading the Firebase SDK, check the console.";
+        }
+      });
+    </script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth-compat.js"></script>
+
+    <script>
+      const firebaseApp = firebase.initializeApp({
+        apiKey:
+          "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCm99aYEhZPiiuX\n/DT/Ja4pCTN4UDgUnfCbY3uAw6RyAQ8uablu9TXpo2cAVap4txp7VD/kad9s7iUX\ni4PNL2hDqhIXTfzAtxJeIGqu1SIGiesQOn1JAvyXoGFGIIwRzWIdWxo2OK1DAvbs\nDIxQx7Qc7LYeAcaQvQJUqv2A0iCugWLJduYap67ppKJSOMUWwJA8i/tAJkhdazAV\nFG9jFwVR0SxlGKId2b2fvXSphYK1kJKKwFYbNhY9a89dJt7lqc92MRvUoqQGpPmZ\nCeR2Z+hPcB7SeaQl/r541ttVdWB7+AZKxvdQVYUavqtBqEmGvl9/H+U5S9XxORe9\nntiOz7MNAgMBAAECggEAAW0FEHVkard5BH+V4EaXxH1HSulnITNGwRJKFWEWVWw8\nOfQ92NG6l80vwv6i9GGelfEJPqUc0Fb+9W2D6aD/A0eU3KLA3CXJarOyKt4NFVXg\n2QRML5nD7cjj1m/Ot77eQ0vqNGOq2cimXSuvmGesL8G3ExiGyT5OonR3XRNDo4SE\nd0cMgX10RHuzJvJhQJdAZb4SoEb3tP30y0MjYoQ8H8kN4RDPa8P8NPyspSe8PwkH\nTt4jmqSimf3funn0LjyRMEIIBCGf0jl4SyCljIzti2tYKgWKQ0HG4nZHzUhGUbIh\nLLn1eB7y7cnzNINsml7kcQa3f+yvjkpg3CgSmf/AwQKBgQDixLGfnN0mBFDRsrjb\nJtgTWSWVYQUoi8INrQzbi+AHu2ZjZVEbvogM9HrbBtumVi5VpSr+s1mpDiBGC80Z\nCHTAqPu6wdz8Q4LlYAa/DS/RPotEcAMnq+e0D3s6pmuwd/e024XgjPyfDt7dev9L\nC6sBthqWLcX0M7EF1ROdzAAckQKBgQC8fcAJtq5wOVqwxACCRQ/UtvfW/3ydUlkv\nRDrRI8bvjQjmOAfzR1kFdLrDfZdhbs9nLc2KR0ZvVmpPrPqijlegffmjK/EhqAMx\n/IImimRqdi+aLdfJHE1Bfz0DOlypeQv3FbE39yYaT8eQRTqNIrhtONzQz11BzvGC\n8z9oxk7cvQKBgDdtookEG54WQfbvu3V9yiT4jlIz88HUX2teWB011F2vdbhn5Gpm\nqPSZsYnl5DyFJjAy/g5holHLLSJR8iDjSz5oT5d3mV9j1RPh4+RBAeYgZoQk6PCC\neVEu040jboEk4bwoSFH5xCnQxbLXRJ2ATZ1OeLMqnw8wr11glrnkSkaxAoGBALpC\nZRb0L3H0KxsLxBj2l8syNrx84K4xZrHfcWOjP/0N1+JvMeQD+AL9M2TkYUfFkSu7\nRiXDguWYdhtfqpghopOUiK/mRzRj6yxlAlOFY+8T9LwdWuN/lRQI4MikzlYlqF40\nUFgmYL+VYHW/AzneOnKrwwCQOO5DycIGDv3BIMLdAoGAQ/ktGPGPNxfh22g66qCp\nlDf+rMxIRGp/Iy7JBKfdvgfDB0RvtFf8/xzTefum+igrJ3Y9P05r7YLehr1Ggfan\nuuL4Z/u2HOv4ktBQB03UYV+0tsQNlAr6dJvb+0n6nvCS/r2LNzhEVZVCMz0hyG43\nwqPfULkDqHbDt9TxJwIRB0o=\n-----END PRIVATE KEY-----\n",
+
+        authDomain: "https://www.googleapis.com/oauth2/v1/certs",
+        projectId: "liveforeground",
+      });
+      const db = firebaseApp.firebase.firestore();
+      console.log("db", db);
+
+      let productArray;
+      d3.csv("./asset/LIVE Oct 2  - เรียงตรงนี้.csv", function (error, data) {
+        if (error) throw error;
+        console.log(data); // [{"Hello": "world"}, …]
+        productArray = data;
+      });
+
+      let productCode = "หห";
+      let productVariant = "หหฟ้า หหแดง หหชมพู";
+      let productPrice = "120";
+      let productDescription = "อธิบายอธิบายอธิบายอธิบาย";
+      let productIndex = 0;
+
+      const setProductDetail = (productIndex) => {
+        document.getElementById("product_code").innerText =
+          productArray[productIndex]["รหัสหลัก"];
+        document.getElementById("product_price").innerText =
+          productArray[productIndex]["ราคา"];
+
+        document.getElementById("product_variant").innerText =
+          productArray[productIndex]["รหัสรอง"];
+
+        document.getElementById("product_description").innerText =
+          productArray[productIndex]["คำอธิบาย"];
+      };
+
+      document.onkeydown = (e) => {
+        if (e.code === "ArrowDown") {
+          productIndex += 1;
+          // setProductDetail(productIndex);
+          db.collection("productIndex").doc("index").set({
+            index: productIndex,
+          });
+        } else if (e.code === "ArrowUp" && productIndex > 1) {
+          productIndex -= 1;
+          // setProductDetail(productIndex);
+          db.collection("productIndex").doc("index").set({
+            index: productIndex,
+          });
+        }
+      };
+
+      db.collection("productIndex")
+        .doc("index")
+        .onSnapshot((doc) => {
+          console.log("Current data: ", doc.data());
+          const { index } = doc.data();
+          const productIndex = index;
+          console.log("productIndex", productIndex);
+          setProductDetail(productIndex);
+        });
+    </script>
+  </body>
+</html>
